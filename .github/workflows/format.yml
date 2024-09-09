@@ -10,7 +10,7 @@ jobs:
       - uses: erlef/setup-elixir@v1
         with:
           otp-version: "26.0"
-          elixir-version: "1.15"
+          elixir-version: "1.17"
       - uses: actions/cache@v2
         env:
           cache-name: cache-elixir-deps
