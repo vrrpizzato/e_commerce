@@ -20,5 +20,5 @@ defmodule YourCompanyWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :your_company
+  use Gettext.Backend, otp_app: :your_company
 end

@@ -42,8 +42,8 @@ defmodule YourCompanyWeb do
         formats: [:html, :json],
         layouts: [html: YourCompanyWeb.Layouts]
 
+      use Gettext, backend: YourCompanyWeb.Gettext
       import Plug.Conn
-      import YourCompanyWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,11 +81,12 @@ defmodule YourCompanyWeb do
 
   defp html_helpers do
     quote do
+      use Gettext, backend: YourCompanyWeb.Gettext
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
       import YourCompanyWeb.CoreComponents
-      import YourCompanyWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS

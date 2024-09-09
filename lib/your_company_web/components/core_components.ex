@@ -15,10 +15,10 @@ defmodule YourCompanyWeb.CoreComponents do
   Icons are provided by [heroicons](https://heroicons.com). See `icon/1` for usage.
   """
   use Phoenix.Component
+  use Gettext, backend: YourCompanyWeb.Gettext
 
   alias Phoenix.HTML.Form
   alias Phoenix.LiveView.JS
-  import YourCompanyWeb.Gettext
 
   @doc """
   Renders a modal.
