@@ -98,7 +98,7 @@ defmodule YourCompany.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      lint: ["format", "credo --strict --config-name default", "sobelow --config"],
+      lint: ["format", "mix compile --force --warnings-as-errors", "credo --strict --config-name default", "sobelow --config"],
       coverage: ["coveralls.html"],
       setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
