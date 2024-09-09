@@ -1,0 +1,40 @@
+name: Check Tests
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: erlef/setup-elixir@v1
+        with:
+          otp-version: "26.0"
+          elixir-version: "1.17"
+      - uses: actions/cache@v2
+        env:
+          cache-name: cache-elixir-deps
+        with:
+          path: |
+            deps
+            _build
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Fetch Dependencies
+        run: MIX_ENV=test mix deps.get
+      - name: ==> 🔎 Integrating test
+        run: MIX_ENV=test mix coveralls.json
+    services:
+      pg:
+        image: postgres:14
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5

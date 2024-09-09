@@ -1,0 +1,15 @@
+{
+    "skip_files": [
+        "lib/your_company.ex",
+        "lib/your_company/application.ex",
+        "lib/your_company_web/components/core_components.ex",
+        "lib/your_company_web/router.ex",
+        "lib/your_company_web/telemetry.ex",
+        "test/support/*"
+    ],
+    "coverage_options": {
+        "treat_no_relevant_lines_as_covered": true,
+        "output_dir": "cover/",
+        "minimum_coverage": 90
+    }
+}
