@@ -35,3 +35,6 @@ your_company-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Environments
+.env
+
