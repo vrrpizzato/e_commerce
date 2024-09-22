@@ -1,4 +1,5 @@
 # YourCompany
+Um projeto que simula a landing page do app de uma empresa de ‘stock trading’, desenvolvido com Phoenix framework, Tailwind CSS, Javascript e deployment com Fly.io.
 
 To start your Phoenix server:
 
